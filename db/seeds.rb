@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+# Creation de 3 Cours avec 7 élèves chacun
+3.times do
+  course = Course.create(title: Faker::Book.title)
+  7.times do
+    student = Student.create(name: Faker::GameOfThrones.character, course_id: course.id )
+  end
+end
